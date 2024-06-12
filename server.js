@@ -7,10 +7,7 @@ import bcrypt from 'bcrypt';
 import { usersDb } from './utils/createAdmin.js';
 
 
-
 const app = express();
-//const usersDb = new Datastore({ filename: path.join(__dirname, 'users.db'), autoload: true });
-
 
 
 app.use(bodyParser.json());

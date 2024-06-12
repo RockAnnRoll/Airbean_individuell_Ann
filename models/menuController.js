@@ -1,4 +1,4 @@
-//Controllers? Johan
+
 
 import Datastore from 'nedb-promise';
 
