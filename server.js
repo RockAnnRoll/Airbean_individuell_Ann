@@ -7,6 +7,7 @@ import bcrypt from 'bcrypt';
 import { usersDb } from './utils/createAdmin.js';
 
 
+
 const app = express();
 //const usersDb = new Datastore({ filename: path.join(__dirname, 'users.db'), autoload: true });
 
@@ -24,7 +25,7 @@ app.post('/login', async (req, res) => {
   const user = await usersDb.findOne({ username });
 
   if (!user) {
-    return res.status(401).send('Invalid credentials-user not found');
+    return res.status(401).send('Invalid credentials');
   }
 
   const isPasswordValid = await bcrypt.compare(password, user.password);
