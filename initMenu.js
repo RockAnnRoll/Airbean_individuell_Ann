@@ -1,12 +1,6 @@
-import Datastore from 'nedb-promise';
-import path from 'path';
-import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import { menuDb } from './menu.js';
 
-const menuDb = new Datastore({ filename: path.join(__dirname, 'menu.db'), autoload: true });
-// Ny databas skapas för meny 
 
 const menu = [
   { id: 1, title: "Bryggkaffe", desc: "Bryggd på månadens bönor.", price: 39 },
@@ -24,3 +18,4 @@ const initMenu = async () => {
 };
 
 initMenu().catch(err => console.error(err));
+

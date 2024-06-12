@@ -2,9 +2,11 @@
 {"id":3,"title":"Cappuccino","desc":"Bryggd på månadens bönor.","price":49,"_id":"0txwWdhM7QWm3j8X"}
 {"id":4,"title":"Latte Macchiato","desc":"Bryggd på månadens bönor.","price":49,"_id":"2ezuwRtSBw8rO6To"}
 {"id":10,"title":"Te med banansmak ","desc":"Bryggd på månadens bönor.","price":45,"createdAt":{"$$date":1718176778761},"_id":"5vX625XuxtXfbVqJ"}
+{"id":11,"title":"Kaffe med banansmak ","desc":"Bryggd på månadens bönor.","price":45,"createdAt":{"$$date":1718192192859},"_id":"6RAqXT8HOgU2IwdE"}
 {"id":5,"title":"Kaffe Latte","desc":"Bryggd på månadens bönor.","price":54,"_id":"8NEweLduu0Ej6kL3"}
 {"id":8,"title":"Choklad med topping","desc":"Bryggd på månadens bönor.","price":25,"createdAt":{"$$date":1718096902826},"_id":"K1BsQ1vMVh9Q7Grt","modifiedAt":{"$$date":1718182033267}}
 {"id":2,"title":"Caffè Doppio","desc":"Bryggd på månadens bönor.","price":49,"_id":"LtyKRc9ZooSFovkO"}
 {"id":9,"title":"Te ","desc":"Bryggd på månadens bönor.","price":65,"createdAt":{"$$date":1718135566417},"_id":"ObrH0WyYdYnEWmkl","modifiedAt":"2024-06-12T07:35:13.174Z"}
 {"id":7,"title":"Kaffe med vaniljsmak","desc":"Bryggd på månadens bönor.","price":65,"createdAt":"2024-06-11T08:44:32.926Z","_id":"Yj6M8GAfKINmuzxI","modifiedAt":"2024-06-12T07:42:40.369Z"}
 {"id":1,"title":"Bryggkaffe","desc":"Bryggd på månadens bönor.","price":39,"_id":"bqy3liv8LaamllQx"}
+{"id":12,"title":"Expresso med banansmak ","desc":"Bryggd på månadens bönor.","price":45,"createdAt":{"$$date":1718192973713},"_id":"56p1lszJndlTd5PX"}

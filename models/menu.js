@@ -1,10 +1,11 @@
-
+//Controllers? Johan
 
 import Datastore from 'nedb-promise';
 
 const menuDb = new Datastore({ filename: './menu.db', autoload: true });
-// Ny databas skapas för meny
+// Ny databas skapas för meny 
 
+export { menuDb };
 
 //Funktion för att hämta alla menyobjekt
 export async function getMenu() {
@@ -15,7 +16,6 @@ export async function getMenu() {
 export async function getMenuItemById(id) {
   return menuDb.findOne({ id: parseInt(id, 10) });
 }
-
 
 //Funktion för att lägga till ett nytt menyobjekt. Skapelsedatum (createdAt)läggs till. 
 export async function addMenuItem(item) {
@@ -41,7 +41,6 @@ export async function updateMenuItem(id, updates) {
   }
   return item;
 }
-
 
 
 // Funktion som tar bort ett menyobjekt baserat på id.
