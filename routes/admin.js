@@ -9,7 +9,9 @@ import { addCampaign, getCampaigns, getCampaign, deleteCampaign } from '../model
 const router = express.Router();
 //Skapa en router
 
-// GET/menu - HÄMTAR HELA MENYN 
+/******************* GET/menu - HÄMTAR HELA MENYN ************************** */
+
+
 router.get('/menu', requireAdmin, async (req, res) => {
   const menu = await getMenu();
   res.json(menu);
@@ -17,7 +19,8 @@ router.get('/menu', requireAdmin, async (req, res) => {
 //Endast administratörer kan komma åt denna route->requiereAdmin. Likaså för post, put och delete. 
 
 
-// POST/menu - LÄGGA TILL PRODUKT 
+/******************* POST/menu - LÄGGA TILL PRODUKT ************************** */
+
 router.post('/menu', requireAdmin, async (req, res) => {
   const { id, title, desc, price } = req.body;
 
@@ -28,23 +31,35 @@ router.post('/menu', requireAdmin, async (req, res) => {
   const addedItem = await addMenuItem(newItem);
   res.status(201).json({ message: 'Product added successfully', newItem });
 });
-// Validerar att alla nädvändiga fält id, title, desc, price finns i req.body
+// Validerar att alla nödvändiga fält id, title, desc, price finns i req.body
 // addMenuItem funktionen används för att lägga till den nya artikeln
 
+/**************** PUT /menu/:id - UPPDATERAR EN BEFINTLIG PRODUKT ***************************** */
 
-//PUT /menu/:id - UPPDATERAR EN BEFINTLIG PRODUKT
 router.put('/menu/:id', requireAdmin, async (req, res) => {
   const { id } = req.params;
   const updates = req.body;
   updates.modifiedAt = new Date().toISOString();
-  const updatedItem = await updateMenuItem(id, updates);
-  res.json(updatedItem);
-}); 
-// id hämtas från URL-parametrarna (req.params)
+
+  try {
+    const updatedItem = await updateMenuItem(id, updates);
+    res.json({
+      message: 'Product updated successfully',
+      item: updatedItem
+    });
+  } catch (error) {
+    if (error.message === 'Product not found') {
+      res.status(404).json({ error: 'Product not found' });
+    } else {
+      res.status(500).json({ error: 'An unexpected error occurred' });
+    }
+  }
+});
 //Uppdateringar tas emot från req.body och lägger till ett modifiedAt fält med nuvarande tid.
 //updateMenuItem funktionen används för att uppdatera artikeln med specificerat id och de nya uppdateringarna.
 
-//DELETE /menu/:id - TA BORT EN ARTIKEL FRÅN MENYN 
+/******************DELETE /menu/:id - TA BORT EN ARTIKEL FRÅN MENYN *************************** */
+
 router.delete('/menu/:id', requireAdmin, async (req, res) => {
   const { id } = req.params;
   const deletedItem = await deleteMenuItem(id);
@@ -56,15 +71,15 @@ router.delete('/menu/:id', requireAdmin, async (req, res) => {
 });
 //deleteMenuItem används funktionen för att ta bort artikeln med specificerat id.
 
-// Endpoint för att lägga till kampanjerbjudanden
+/******************POST /campaign - LÄGGA TILL KAMPANJ ************************* */
+
 router.post('/campaign', requireAdmin, async (req, res) => {
   const { products, price } = req.body;
 
   if (!products || !Array.isArray(products) || products.length === 0 || !price) {
     return res.status(400).send('Products (array) and price are required');
   }
-
-  // Validera att alla produkter finns i menyn
+  // Validera att alla produkter som anges i kampanjen finns i menyn genom att jämföra deras id med de id som finns i menyn.
   const menu = await getMenu();
   const menuIds = menu.map(item => item.id);
   const invalidProducts = products.filter(product => !menuIds.includes(product));
@@ -77,7 +92,8 @@ router.post('/campaign', requireAdmin, async (req, res) => {
   const addedCampaign = await addCampaign(newCampaign);
   res.status(201).json({ message: 'Campaign added successfully', addedCampaign });
 });
-//validera att alla produkter som anges i kampanjen finns i menyn genom att jämföra deras id med de id som finns i menyn.
+
+/***************** GET /campaigns - SE ALLA KAMPANJER **************************** */ 
 
 router.get('/campaigns', requireAdmin, async (req, res) => {
   const campaigns = await getCampaigns();
