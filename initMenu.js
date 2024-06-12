@@ -6,6 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const menuDb = new Datastore({ filename: path.join(__dirname, 'menu.db'), autoload: true });
+// Ny databas skapas för meny 
 
 const menu = [
   { id: 1, title: "Bryggkaffe", desc: "Bryggd på månadens bönor.", price: 39 },
