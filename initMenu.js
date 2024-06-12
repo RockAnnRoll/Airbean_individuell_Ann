@@ -10,12 +10,14 @@ const menu = [
   { id: 5, title: "Kaffe Latte", desc: "Bryggd på månadens bönor.", price: 54 },
   { id: 6, title: "Cortado", desc: "Bryggd på månadens bönor.", price: 39 }
 ];
+//Skapa Meny-array
 
 const initMenu = async () => {
   await menuDb.remove({}, { multi: true });
   await menuDb.insert(menu);
   console.log('Menu initialized');
 };
+//Funktionen initMenu rensar först alla befintliga poster i menuDb och lägger sedan till nya poster från menu. 
 
 initMenu().catch(err => console.error(err));
 

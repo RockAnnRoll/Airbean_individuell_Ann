@@ -1,4 +1,4 @@
-//För att starta express-servern
+
 import express from 'express';
 import bodyParser from 'body-parser';
 import session from 'express-session';
@@ -16,6 +16,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
 }));
+//Hantera inkommande JSON-data och användarsessioner i appen
 
 // Logga in
 app.post('/login', async (req, res) => {

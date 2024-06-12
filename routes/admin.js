@@ -3,7 +3,7 @@
 import express from 'express';
 import { getMenu, addMenuItem, updateMenuItem, deleteMenuItem } from '../models/menuController.js';
 import { requireAdmin } from '../middleware/auth.js';
-import { addCampaign, getCampaigns, getCampaign, deleteCampaign } from '../models/campaign.js';
+import { addCampaign, getCampaigns, getCampaign, deleteCampaign } from '../models/campaignController.js';
 
 
 const router = express.Router();
