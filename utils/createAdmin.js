@@ -2,12 +2,13 @@ import Datastore from 'nedb-promise';
 import bcrypt from 'bcrypt';
 
 const usersDb = new Datastore({ filename: './users.db', autoload: true });
+//Databas skapas för användare
 
 const initializeAdmin = async () => {
-  // Kontrollera först om adminanvändaren redan finns för att undvika dubbletter
+  // Kontrollera om adminanvändaren redan finns för att undvika dubbletter
   const existingAdmin = await usersDb.findOne({ role: 'admin' });
 
-  // Om adminanvändaren inte finns, skapa den
+  // Om adminanvändaren inte finns, skapas den:
   if (!existingAdmin) {
     const username = 'admin';
     const password = 'password'; 
@@ -22,5 +23,6 @@ const initializeAdmin = async () => {
 };
 
 initializeAdmin().catch(err => console.error(err));
+// Om något går fel när initializeAdmin-funktionen körs loggas felet till konsolen.
 
 export {usersDb};
