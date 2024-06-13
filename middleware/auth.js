@@ -1,23 +1,31 @@
-//Middleware för att säkerställa att användaren är admin innan de får tillgång till vissa skyddade resurser
+
+//Middleware för att säkerställa att användaren är admin och inloggade innan de får tillgång till vissa skyddade resurser och funktionernpm s
 
 import { usersDb } from "../utils/createAdmin.js";
 
 
 export async function requireAdmin(req, res, next) {
-  if (!req.session.user) {
-    return res.status(401).send('Access denied. No user session found.');
+  // Kontrollera om det finns en användarsession
+  if (!req.session || !req.session.user) {
+    return res.status(401).json({ message: 'Access denied. No user session found.' });
   }
-  // Kontrollerar om det finns en användarsession 
- 
 
+  // Kontrollera om användarens roll är 'admin'
+  if (req.session.user.role !== 'admin') {
+    return res.status(403).json({ message: 'Access denied. User is not an admin.' });
+  }
+
+  // Hämta användaren från databasen
   const user = await usersDb.findOne({ _id: req.session.user._id });
-  // Användare hämtas från databasen 
-
-  if (!user || user.role !== 'admin') {
-    return res.status(403).send('Access denied');
+  if (!user) {
+    return res.status(403).json({ message: 'Access denied. User not found in database.' });
   }
-  //Om användaren inte finns eller om användarens roll inte är 'admin' skickas ett felmeddelande. 
 
+  // Släpp igenom om alla kontroller är godkända
   next();
 }
+ 
+
+
+
 

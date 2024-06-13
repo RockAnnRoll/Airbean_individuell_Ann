@@ -3,7 +3,7 @@
 import express from 'express';
 import { getMenu, addMenuItem, updateMenuItem, deleteMenuItem } from '../models/menuController.js';
 import { requireAdmin } from '../middleware/auth.js';
-import { addCampaign, getCampaigns, getCampaign, deleteCampaign } from '../models/campaignController.js';
+import { addCampaign, getCampaigns, } from '../models/campaignController.js';
 
 
 const router = express.Router();
@@ -73,12 +73,14 @@ router.delete('/menu/:id', requireAdmin, async (req, res) => {
 
 /******************POST /campaign - LÄGGA TILL KAMPANJ ************************* */
 
+
 router.post('/campaign', requireAdmin, async (req, res) => {
   const { products, price } = req.body;
 
   if (!products || !Array.isArray(products) || products.length === 0 || !price) {
     return res.status(400).send('Products (array) and price are required');
   }
+
   // Validera att alla produkter som anges i kampanjen finns i menyn genom att jämföra deras id med de id som finns i menyn.
   const menu = await getMenu();
   const menuIds = menu.map(item => item.id);
@@ -88,16 +90,40 @@ router.post('/campaign', requireAdmin, async (req, res) => {
     return res.status(400).send(`The following products do not exist in the menu: ${invalidProducts.join(', ')}`);
   }
 
-  const newCampaign = { products, price, createdAt: new Date().toISOString() };
+  // Hämta titlarna för produkterna
+  const productDetails = products.map(productId => {
+    const product = menu.find(item => item.id === productId);
+    return {
+      id: productId,
+      title: product ? product.title : 'Unknown title'
+    };
+  });
+
+  const newCampaign = { products: productDetails, price, createdAt: new Date().toISOString() };
   const addedCampaign = await addCampaign(newCampaign);
   res.status(201).json({ message: 'Campaign added successfully', addedCampaign });
 });
-
 /***************** GET /campaigns - SE ALLA KAMPANJER **************************** */ 
 
 router.get('/campaigns', requireAdmin, async (req, res) => {
   const campaigns = await getCampaigns();
-  res.json(campaigns);
+
+  const menu = await getMenu();
+  const campaignsWithTitles = campaigns.map(campaign => {
+    const productsWithTitles = campaign.products.map(product => {
+      const menuProduct = menu.find(item => item.id === product.id);
+      return {
+        id: product.id,
+        title: menuProduct ? menuProduct.title : 'Unknown title'
+      };
+    });
+    return {
+      ...campaign,
+      products: productsWithTitles
+    };
+  });
+
+  res.json(campaignsWithTitles);
 });
 
 export default router;

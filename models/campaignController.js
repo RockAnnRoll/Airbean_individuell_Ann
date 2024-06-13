@@ -13,13 +13,3 @@ export async function addCampaign(campaign) {
 export async function getCampaigns() {
   return campaignDb.find({});
 }
-
-//Hämta en specifik kampanj
-export async function getCampaign(id) {
-  return campaignDb.findOne({ _id: id });
-}
-
-//Ta bort en kampanj
-export async function deleteCampaign(id) {
-  return campaignDb.remove({ _id: id });
-}

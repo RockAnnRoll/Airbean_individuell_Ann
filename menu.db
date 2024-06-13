@@ -5,12 +5,12 @@
 {"id":10,"title":"Te med banansmak ","desc":"Bryggd på månadens bönor.","price":45,"createdAt":{"$$date":1718176778761},"_id":"5vX625XuxtXfbVqJ"}
 {"id":11,"title":"Kaffe med banansmak ","desc":"Bryggd på månadens bönor.","price":45,"createdAt":{"$$date":1718192192859},"_id":"6RAqXT8HOgU2IwdE"}
 {"id":5,"title":"Kaffe Latte","desc":"Bryggd på månadens bönor.","price":54,"_id":"8NEweLduu0Ej6kL3"}
+{"id":14,"title":"Expresso med päronsmak ","desc":"Bryggd på månadens bönor.","price":25,"createdAt":{"$$date":1718290871578},"_id":"G3zcx2UdYkUqgZKZ"}
+{"id":20,"title":"Expresso med äpplesmak ","desc":"Bryggd på månadens bönor.","price":25,"createdAt":{"$$date":1718292281218},"_id":"GdfiPsILK5dMwRw3"}
 {"id":8,"title":"Choklad med topping","desc":"Bryggd på månadens bönor.","price":100,"createdAt":{"$$date":1718096902826},"_id":"K1BsQ1vMVh9Q7Grt","modifiedAt":{"$$date":1718195481093}}
 {"id":2,"title":"Caffè Doppio","desc":"Bryggd på månadens bönor.","price":49,"_id":"LtyKRc9ZooSFovkO"}
 {"id":9,"title":"Te ","desc":"Bryggd på månadens bönor.","price":65,"createdAt":{"$$date":1718135566417},"_id":"ObrH0WyYdYnEWmkl","modifiedAt":"2024-06-12T07:35:13.174Z"}
-{"id":7,"title":"Kaffe med vaniljsmak","desc":"Bryggd på månadens bönor.","price":65,"createdAt":"2024-06-11T08:44:32.926Z","_id":"Yj6M8GAfKINmuzxI","modifiedAt":"2024-06-12T07:42:40.369Z"}
-{"id":1,"title":"Bryggkaffe","desc":"Bryggd på månadens bönor.","price":39,"_id":"bqy3liv8LaamllQx"}
 {"id":7,"title":"Kaffe med vaniljsmak","desc":"Bryggd på månadens bönor.","price":20,"createdAt":"2024-06-11T08:44:32.926Z","_id":"Yj6M8GAfKINmuzxI","modifiedAt":{"$$date":1718258768699}}
-{"id":15,"title":"Expresso med banansmak ","desc":"Bryggd på månadens bönor.","price":25,"createdAt":{"$$date":1718270740931},"_id":"nkShSRSMPTXDG0xU"}
-{"id":15,"title":"Expresso med banansmak ","desc":"Bryggd på månadens bönor.","price":20,"createdAt":{"$$date":1718270740931},"_id":"nkShSRSMPTXDG0xU","modifiedAt":{"$$date":1718270961718}}
-{"$$deleted":true,"_id":"nkShSRSMPTXDG0xU"}
+{"id":14,"title":"Expresso med päronsmak ","desc":"Bryggd på månadens bönor.","price":25,"createdAt":{"$$date":1718290908001},"_id":"bISHa9X7ObmRK4f3"}
+{"id":1,"title":"Bryggkaffe","desc":"Bryggd på månadens bönor.","price":39,"_id":"bqy3liv8LaamllQx"}
+{"id":18,"title":"Expresso med päronsmak ","desc":"Bryggd på månadens bönor.","price":25,"createdAt":{"$$date":1718290913197},"_id":"n3lZJ2Ra4IhWfGYj"}
