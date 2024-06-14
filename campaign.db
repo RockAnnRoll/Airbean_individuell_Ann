@@ -4,6 +4,8 @@
 {"products":[20,7],"price":90,"createdAt":"2024-06-13T19:00:44.979Z","_id":"P9bm8p4FojUvbnPP"}
 {"products":[{"id":2,"title":"Caffè Doppio"},{"id":7,"title":"Kaffe med vaniljsmak"}],"price":80,"createdAt":"2024-06-13T19:06:58.441Z","_id":"TQtUSikeYd3yFlwf"}
 {"products":[7,7],"price":60,"createdAt":"2024-06-13T15:05:14.226Z","_id":"ajUZLy6yViYfFp7j"}
+{"products":[{"id":3,"title":"Cappuccino"},{"id":7,"title":"Kaffe med vaniljsmak"}],"price":90,"createdAt":"2024-06-13T20:49:27.291Z","_id":"alUQIVxlcHDpMz0I"}
 {"products":[10,7],"price":70,"createdAt":"2024-06-13T18:49:45.568Z","_id":"i0ibo3285Js8kQTo"}
 {"products":[10,12],"price":60,"createdAt":"2024-06-13T08:45:44.824Z","_id":"vkYbcRCeJvM5hyI4"}
 {"products":[9,7],"price":70,"createdAt":"2024-06-13T15:26:34.230Z","_id":"x2Nj71oaBlI3iilq"}
+{"products":[{"id":4,"title":"Latte Macchiato"},{"id":7,"title":"Kaffe med vaniljsmak"}],"price":90,"createdAt":"2024-06-14T11:32:18.083Z","_id":"3XMdXrhTDDPPcdpO"}

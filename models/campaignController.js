@@ -1,7 +1,6 @@
+import Datastore from "nedb-promise";
 
-import Datastore from 'nedb-promise';
-
-const campaignDb = new Datastore({ filename: './campaign.db', autoload: true });
+const campaignDb = new Datastore({ filename: "./campaign.db", autoload: true });
 //En ny databas skapas för kampanjer
 
 //Lägga till en kampanj
